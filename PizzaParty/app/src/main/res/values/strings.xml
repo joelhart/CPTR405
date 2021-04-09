@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
     <string name="app_name">Pizza Party</string>
     <string name="number_of_people">Number of people?</string>
@@ -8,4 +10,9 @@
     <string name="ravenous">Ravenous</string>
     <string name="total_pizzas">Total pizzas: ?</string>
     <string name="calculate">Calculate</string>
+    <string-array name="hunger_array">
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Ravenous</item>
+    </string-array>
 </resources>

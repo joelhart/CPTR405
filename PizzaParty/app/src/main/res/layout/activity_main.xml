@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -13,65 +14,113 @@
     tools:context="com.zybooks.pizzaparty.MainActivity">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/attendEditText"
         android:text="@string/number_of_people"
         android:textSize="@dimen/label_text_size"
-        android:labelFor="@id/attendEditText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="40dp"
+        tools:layout_conversion_absoluteWidth="254dp" />
 
     <EditText
         android:id="@+id/attendEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+
+
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:ems="5"
+        android:hint="@string/_10"
         android:importantForAutofill="no"
-        android:hint="@string/_10" />
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:layout_conversion_absoluteHeight="45dp"
+        tools:layout_conversion_absoluteWidth="105dp" />
+
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="124dp"
+
         android:text="@string/how_hungry"
         android:textSize="24sp"
-        android:labelFor="@id/hungryRadioGroup" />
+        app:layout_constraintStart_toStartOf="@+id/attendEditText"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="32dp"
+        tools:layout_conversion_absoluteWidth="139dp" />
 
-    <RadioGroup
-        android:id="@+id/hungryRadioGroup"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RadioButton
-            android:id="@+id/lightRadioButton"
-            android:text="@string/light"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <RadioButton
-            android:id="@+id/mediumRadioButton"
-            android:text="@string/medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true" />
-        <RadioButton
-            android:id="@+id/ravenousRadioButton"
-            android:text="@string/ravenous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RadioGroup>
+    <Spinner
+        android:id="@+id/hunger_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toRightOf="@id/hunger_spinner"
+        app:layout_constraintBaseline_toBaselineOf="@id/hunger_spinner"
+        />
+
+<!--    <RadioButton-->
+<!--        android:id="@+id/lightRadioButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/light"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView4"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView4"-->
+<!--        tools:layout_conversion_absoluteHeight="48dp"-->
+<!--        tools:layout_conversion_absoluteWidth="63dp" />-->
+
+<!--    <RadioButton-->
+<!--        android:id="@+id/mediumRadioButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:checked="true"-->
+<!--        android:text="@string/medium"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/lightRadioButton"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/lightRadioButton"-->
+<!--        tools:layout_conversion_absoluteHeight="48dp"-->
+<!--        tools:layout_conversion_absoluteWidth="83dp" />-->
+
+<!--    <RadioButton-->
+<!--        android:id="@+id/ravenousRadioButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/ravenous"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/mediumRadioButton"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/mediumRadioButton"-->
+<!--        tools:layout_conversion_absoluteHeight="48dp"-->
+<!--        tools:layout_conversion_absoluteWidth="93dp" />-->
+
 
     <TextView
         android:id="@+id/answerTextView"
-        android:text="@string/total_pizzas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="24sp"/>
+        android:layout_marginTop="336dp"
+        android:text="@string/total_pizzas"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/hunger_spinner"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="32dp"
+        tools:layout_conversion_absoluteWidth="151dp" />
 
     <Button
         android:id="@+id/calcButton"
-        android:text="@string/calculate"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="calculateClick" />
-</LinearLayout>
+        android:onClick="calculateClick"
+        android:text="@string/calculate"
+        app:layout_constraintStart_toStartOf="@+id/answerTextView"
+        app:layout_constraintTop_toBottomOf="@+id/answerTextView"
+        tools:layout_conversion_absoluteHeight="48dp"
+        style="@style/CalcButton"
+        tools:layout_conversion_absoluteWidth="379dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

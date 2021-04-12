@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Flummox</string>
     <string name="welcome">Welcome to Flummox!!</string>
+    <string name="click_me">Click ME</string>
+    <string name="or_click_me">Or Click Me</string>
+    <string name="sorry">Neither of these do anything, sorry!</string>
+    <string name="told_ya">Told ya</string>
+    <string name="i_do_something_though">I do something though!</string>
+    <string name="what_did_you_think">What did you think?</string>
 </resources>

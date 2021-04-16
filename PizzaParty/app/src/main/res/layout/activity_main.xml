@@ -5,12 +5,12 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/pizza_background"
-    android:paddingBottom="16dp"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context="com.zybooks.pizzaparty.MainActivity">
 
     <TextView
@@ -32,7 +32,6 @@
         android:id="@+id/attendEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
 
 
         android:layout_marginStart="16dp"
@@ -60,67 +59,69 @@
         tools:layout_conversion_absoluteHeight="32dp"
         tools:layout_conversion_absoluteWidth="139dp" />
 
+    <!--    <RadioButton-->
+    <!--        android:id="@+id/lightRadioButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/light"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/textView4"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView4"-->
+    <!--        tools:layout_conversion_absoluteHeight="48dp"-->
+    <!--        tools:layout_conversion_absoluteWidth="63dp" />-->
+
+    <!--    <RadioButton-->
+    <!--        android:id="@+id/mediumRadioButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:checked="true"-->
+    <!--        android:text="@string/medium"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/lightRadioButton"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/lightRadioButton"-->
+    <!--        tools:layout_conversion_absoluteHeight="48dp"-->
+    <!--        tools:layout_conversion_absoluteWidth="83dp" />-->
+
+    <!--    <RadioButton-->
+    <!--        android:id="@+id/ravenousRadioButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/ravenous"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/mediumRadioButton"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/mediumRadioButton"-->
+    <!--        tools:layout_conversion_absoluteHeight="48dp"-->
+    <!--        tools:layout_conversion_absoluteWidth="93dp" />-->
+
+
     <Spinner
         android:id="@+id/hunger_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toRightOf="@id/hunger_spinner"
-        app:layout_constraintBaseline_toBaselineOf="@id/hunger_spinner"
-        />
-
-<!--    <RadioButton-->
-<!--        android:id="@+id/lightRadioButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/light"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/textView4"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView4"-->
-<!--        tools:layout_conversion_absoluteHeight="48dp"-->
-<!--        tools:layout_conversion_absoluteWidth="63dp" />-->
-
-<!--    <RadioButton-->
-<!--        android:id="@+id/mediumRadioButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:checked="true"-->
-<!--        android:text="@string/medium"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/lightRadioButton"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/lightRadioButton"-->
-<!--        tools:layout_conversion_absoluteHeight="48dp"-->
-<!--        tools:layout_conversion_absoluteWidth="83dp" />-->
-
-<!--    <RadioButton-->
-<!--        android:id="@+id/ravenousRadioButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/ravenous"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/mediumRadioButton"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/mediumRadioButton"-->
-<!--        tools:layout_conversion_absoluteHeight="48dp"-->
-<!--        tools:layout_conversion_absoluteWidth="93dp" />-->
-
+        android:layout_width="162dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/answerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="24dp"
         android:text="@string/total_pizzas"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/hunger_spinner"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:layout_conversion_absoluteHeight="32dp"
         tools:layout_conversion_absoluteWidth="151dp" />
 
     <Button
         android:id="@+id/calcButton"
+        style="@style/CalcButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:onClick="calculateClick"
         android:text="@string/calculate"
         app:layout_constraintStart_toStartOf="@+id/answerTextView"
         app:layout_constraintTop_toBottomOf="@+id/answerTextView"
         tools:layout_conversion_absoluteHeight="48dp"
-        style="@style/CalcButton"
         tools:layout_conversion_absoluteWidth="379dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

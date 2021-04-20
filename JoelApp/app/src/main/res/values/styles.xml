@@ -1,10 +1,18 @@
 <resources>
     <style name="Header">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/grey</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/purple_500</item>
         <item name="colorControlActivated">@color/purple_700</item>
+    </style>
+    <style name="GameOptionButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>

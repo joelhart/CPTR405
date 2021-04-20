@@ -7,4 +7,6 @@
     <string name="told_ya">Told ya</string>
     <string name="i_do_something_though">I do something though!</string>
     <string name="what_did_you_think">What did you think?</string>
+    <string name="color_button">Change Color</string>
+    <string name="choose_color">Choose a color:</string>
 </resources>

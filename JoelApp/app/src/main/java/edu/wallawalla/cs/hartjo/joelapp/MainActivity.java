@@ -2,13 +2,20 @@ package edu.wallawalla.cs.hartjo.joelapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
+import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -24,11 +31,16 @@ public class MainActivity extends AppCompatActivity {
     private int mOnColor;
     private int mOnColorId;
     private int gameState;
+    private int mInitX;
+    private TextView textV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        hideSecretMessage();
 
         // recovering the instance state
         if (savedInstanceState != null) {
@@ -52,35 +64,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Button button1, button2;
-//        final ConstraintLayout constraintLayout;
-//
-//        // set button 1 with its id
-//        button1 = findViewById(R.id.btVar1);
-//
-//        // set button 2 with its id
-//        button2 = findViewById(R.id.btVar2);
-//
-//        // set relative layout with its id
-//        constraintLayout = findViewById(R.id.layout);
-//
-//        // onClick function for button 1
-//        button1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // set the color to relative layout
-//                constraintLayout.setBackgroundResource(R.color.teal_200);
-//            }
-//        });
-//
-//        // onClick function for button 2
-//        button2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // set the color to relative layout
-//                constraintLayout.setBackgroundResource(R.color.purple_200);
-//            }
-//        });
+//        setContentView(R.layout.activity_main);
+//        fullView = (View)findViewById(R.layout.activity_main);
+        textV = (TextView) findViewById(R.id.secretMessage);
+
+        // Move finger left or right to change dice number
+        textV.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                TextView secretText = (TextView) findViewById(R.id.secretMessage);
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        mInitX = (int) event.getX();
+                        return true;
+                    case MotionEvent.ACTION_MOVE:
+                        int x = (int) event.getX();
+
+                        // See if movement is at least 20 pixels
+                        if (Math.abs(x - mInitX) >= 20) {
+                            if (x > mInitX) {
+                                secretText.setText("You Win... For Now         Swipe Left to Revert");
+                            }
+                            else {
+                               secretText.setText("You have found our secret, swipe to continue");
+                            }
+//                            showDice();
+                            mInitX = x;
+                        }
+
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     public void onToggleClicked(View view) {
@@ -131,5 +148,57 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+//
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        // Determine which menu option was chosen
+//        if (item.getItemId() == R.id.action_add) {
+//            // Add selected
+//            return true;
+//        }
+//        else if (item.getItemId() == R.id.action_logout) {
+//            // Logout selected
+//            return true;
+//        }
+//        else if (item.getItemId() == R.id.action_about) {
+//            // About selected
+//            return true;
+//        }
+
+            //call dialogue menu here
+        Dialog testAlert = testFunction();
+        testAlert.show();
+
+
+//        return super.onOptionsItemSelected(item);
+        return true;
+    }
+
+    public Dialog testFunction() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this); // could be  getActivity()
+        builder.setTitle("Are you sure?");
+        builder.setItems(R.array.length_array, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                showSecretMessage();
+            }
+        });
+        return builder.create();
+    }
+
+    public void showSecretMessage() {
+        TextView secretText = (TextView) findViewById(R.id.secretMessage);
+        secretText.setVisibility(View.VISIBLE);
+    }
+
+    public void hideSecretMessage() {
+        TextView secretText = (TextView) findViewById(R.id.secretMessage);
+        secretText.setVisibility(View.GONE);
+    }
 }

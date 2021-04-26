@@ -9,4 +9,15 @@
     <string name="what_did_you_think">What did you think?</string>
     <string name="color_button">Change Color</string>
     <string name="choose_color">Choose a color:</string>
+    <string name="mystery">ĻȾmŤ⚙♔Ɔȟ¢ƔàÖ|Ȑ^ȸcØȡEb</string>
+    <string name="secret_message">You have found our secret, swipe to continue</string>
+
+    <!-- Dialog list options -->
+    <string-array name="length_array">
+        <item>Yes</item>
+        <item>Yes</item>
+        <item>Yes</item>
+    </string-array>
+
+    <string name="win">You Win... For Now         Swipe Left to Revert</string>
 </resources>

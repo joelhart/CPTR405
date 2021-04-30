@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">The Band Database</string>
+
+    <string-array name="bands">
+        <item>The Beatles</item>
+        <item>Nirvana</item>
+        <item>U2</item>
+        <item>The Useful Can For the Americans</item>
+        <item>Heart Fighters</item>
+        <item>Monkeysica</item>
+        <item>Veruca Eats the Heart</item>
+        <item>King Green</item>
+        <item>Lord of the Useful Monkeys</item>
+        <item>One Girl, Twenty Balloons</item>
+        <item>My Super Romance</item>
+        <item>Rage Against the Heart</item>
+        <item>Balloons Twenty</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>An English rock band that formed in Liverpool in 1960.</item>
+        <item>An American rock band that formed in Washington in 1987.</item>
+        <item>An Irish rock band from Dublin that formed in 1976.</item>
+        <item>After exploring the abandoned building, he started to believe in ghosts.</item>
+        <item>Tomorrow will bring something new, so leave today as a memory.</item>
+        <item>The gruff old man sat in the back of the bait shop grumbling to himself as he scooped out a handful of worms.</item>
+        <item>She was amazed by the large chunks of ice washing up on the beach.</item>
+        <item>Grape jelly was leaking out the hole in the roof.</item>
+        <item>A suit of armor provides excellent sun protection on hot days.</item>
+        <item>The shark-infested South Pine channel was the only way in or out.</item>
+        <item>The Guinea fowl flies through the air with all the grace of a turtle.</item>
+        <item>The virus had powers none of us knew existed.</item>
+        <item>Dont put peanut butter on the dogs nose.</item>
+
+    </string-array>
+</resources>

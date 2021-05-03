@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
                         // See if movement is at least 20 pixels
                         if (Math.abs(x - mInitX) >= 20) {
                             if (x > mInitX) {
-                                secretText.setText("You Win... For Now         Swipe Left to Revert");
+//                                secretText.setText("You Win... For Now         Swipe Left to Revert");
+                                goToSecondActivity();
                             }
                             else {
                                secretText.setText("You have found our secret, swipe to continue");
@@ -98,6 +99,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void goToSecondActivity() {
+        Intent i = new Intent(this, ListActivity.class);
+        startActivity(i);
     }
 
     public void onToggleClicked(View view) {

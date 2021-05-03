@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="edu.wallawalla.cs.hartjo.joelapp.DetailsFragment">
+
+    <TextView
+        android:id="@+id/pageName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/pageName"
+        android:text="page name"/>
+
+    <TextView
+        android:id="@+id/pageDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/pageDescription"
+        android:text="description"/>
+
+</LinearLayout>

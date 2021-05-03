@@ -20,4 +20,20 @@
     </string-array>
 
     <string name="win">You Win... For Now         Swipe Left to Revert</string>
+
+    <string-array name="pages">
+        <item>"C:"</item>
+        <item>"C:\\Program Files (x86)"</item>
+        <item>"C:\\Users"</item>
+        <item>"C:\\Users\\Anonymous"</item>
+        <item>"C:\\Users\\Anonymous\\Solution.exe"</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>File(s) found: C:\\Users</item>
+        <item>File not found.</item>
+        <item>You have arrived. Do not proceed.</item>
+        <item>File not found.</item>
+        <item>¯\\_(ツ)_/¯</item>
+    </string-array>
 </resources>

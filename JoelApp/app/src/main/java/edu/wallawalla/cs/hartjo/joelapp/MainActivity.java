@@ -1,5 +1,8 @@
 package edu.wallawalla.cs.hartjo.joelapp;
 
+
+import android.content.SharedPreferences;
+import androidx.preference.PreferenceManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -14,6 +17,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,10 +37,20 @@ public class MainActivity extends AppCompatActivity {
     private int gameState;
     private int mInitX;
     private TextView textV;
+    private boolean mDarkTheme;
+    private SharedPreferences mSharedPrefs;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Change the theme if preference is true
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mDarkTheme = mSharedPrefs.getBoolean("theme", false);
+        if (mDarkTheme) {
+            setTheme(R.style.DarkTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -101,6 +115,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // If theme changed, recreate the activity so theme is applied
+        boolean darkTheme = mSharedPrefs.getBoolean("theme", false);
+        if (darkTheme != mDarkTheme) {
+            recreate();
+        }
+
+//        // Load subjects here in case settings changed
+//        mSubjectAdapter = new SubjectAdapter(loadSubjects());
+//        mRecyclerView.setAdapter(mSubjectAdapter);
+    }
+
     public void goToSecondActivity() {
         Intent i = new Intent(this, ListActivity.class);
         startActivity(i);
@@ -156,7 +185,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
         getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        inflater.inflate(R.menu.subject_menu, menu);
 //
         return super.onCreateOptionsMenu(menu);
     }
@@ -177,6 +208,12 @@ public class MainActivity extends AppCompatActivity {
 //            // About selected
 //            return true;
 //        }
+
+        if (item.getItemId() == R.id.settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
 
             //call dialogue menu here
         Dialog testAlert = testFunction();
@@ -207,4 +244,5 @@ public class MainActivity extends AppCompatActivity {
         TextView secretText = (TextView) findViewById(R.id.secretMessage);
         secretText.setVisibility(View.GONE);
     }
+
 }

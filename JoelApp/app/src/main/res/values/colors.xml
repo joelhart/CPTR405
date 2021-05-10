@@ -11,10 +11,17 @@
     <color name="red">#F00</color>
     <color name="orange">#F80</color>
     <color name="green">#0A0</color>
+    <color name="blue_900">#01579B</color>
 
     <color name="blueberry_200">#90caf9</color>
     <color name="blueberry_400">#42A5F5</color>
     <color name="blueberry_900">#0f46a1</color>
-<!--    <color name="white">#FFF</color>-->
+
+    <!-- dark theme -->
+    <color name="paleblue_900">#023</color>
+    <color name="gray_200">#EEE</color>
+    <color name="gray_400">#BBB</color>
+    <color name="gray_500">#999</color>
+    <color name="gray_700">#555</color>
 
 </resources>

@@ -22,6 +22,7 @@
     <string name="win">You Win... For Now         Swipe Left to Revert</string>
 
     <string-array name="pages">
+        <item>"Welcome To The Next Stage"</item>
         <item>"C:"</item>
         <item>"C:\\Program Files (x86)"</item>
         <item>"C:\\Users"</item>
@@ -30,9 +31,10 @@
     </string-array>
 
     <string-array name="descriptions">
+        <item>"Well don't try clicking this, it does nothing"</item>
         <item>File(s) found: C:\\Users</item>
         <item>File not found.</item>
-        <item>You have arrived. Do not proceed.</item>
+        <item>You made it! Come back next week for further steps.           </item>
         <item>File not found.</item>
         <item>¯\\_(ツ)_/¯</item>
     </string-array>
@@ -72,4 +74,8 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="maybe_try_this">Maybe try this?</string>
+    <string name="nope_still_nothing">Nope still nothing</string>
+    <string name="rate_your_experience">Rate Your Experience</string>
+    <string name="a_ui_ux_puzzle_game">A UI/UX Puzzle Game</string>
 </resources>

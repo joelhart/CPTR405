@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
                 // rating is 1 to numStars
                 TextView text = (TextView)findViewById(R.id.textView2);
                 if (rating < 4) {
-                    text.setText("Rate Better Please");
+                    text.setText("That's It?");
                 } else {
-                    text.setText("Thats Better!");
+                    text.setText("Thanks! Try a menu above for the next clue");
                 }
             }
         });

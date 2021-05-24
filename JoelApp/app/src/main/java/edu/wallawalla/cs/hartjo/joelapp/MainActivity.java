@@ -1,6 +1,9 @@
 package edu.wallawalla.cs.hartjo.joelapp;
 
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 import androidx.annotation.NonNull;
@@ -14,6 +17,7 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
@@ -21,8 +25,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textV;
     private boolean mDarkTheme;
     private SharedPreferences mSharedPrefs;
+//    private MediaPlayer mMediaPlayer;
 
 
     @Override
@@ -141,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (on) {
             // Enable
+            MediaPlayer.create(this, R.raw.error).start();
         } else {
             // Disable
         }
@@ -195,20 +203,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        // Determine which menu option was chosen
-//        if (item.getItemId() == R.id.action_add) {
-//            // Add selected
-//            return true;
-//        }
-//        else if (item.getItemId() == R.id.action_logout) {
-//            // Logout selected
-//            return true;
-//        }
-//        else if (item.getItemId() == R.id.action_about) {
-//            // About selected
-//            return true;
-//        }
-
         if (item.getItemId() == R.id.settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
@@ -235,14 +229,39 @@ public class MainActivity extends AppCompatActivity {
         return builder.create();
     }
 
+//public void soundManagement(String option) {
+//        switch (option) {
+//            case "secret":
+////                MediaPlayer.create(this, R.raw.secret).stop();
+//                MediaPlayer.create(this, R.raw.secret).start();
+//            case "error":
+////                MediaPlayer.create(this, R.raw.error).stop();
+//                MediaPlayer.create(this, R.raw.error).start();
+//        }
+//
+//}
+
     public void showSecretMessage() {
         TextView secretText = (TextView) findViewById(R.id.secretMessage);
         secretText.setVisibility(View.VISIBLE);
+        MediaPlayer.create(this, R.raw.secret).start();
+
+        ImageView arrow = findViewById(R.id.arrow);
+        arrow.setVisibility(View.VISIBLE);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(arrow, "translationY", -20);
+        animator.setRepeatMode(ObjectAnimator.REVERSE);
+        animator.setRepeatCount(ObjectAnimator.INFINITE);
+        animator.setDuration(500);
+        animator.start();
     }
 
     public void hideSecretMessage() {
         TextView secretText = (TextView) findViewById(R.id.secretMessage);
         secretText.setVisibility(View.GONE);
+
+        ImageView arrow = findViewById(R.id.arrow);
+        arrow.setVisibility(View.GONE);
+
     }
 
 }

@@ -1,7 +1,9 @@
 package edu.wallawalla.cs.hartjo.joelapp;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +54,11 @@ public class ListFragment extends Fragment {
             String pageId = (String) view.getTag();
             intent.putExtra(DetailsActivity.EXTRA_PAGE_ID, Integer.parseInt(pageId));
             startActivity(intent);
+
+            switch(pageId) {
+                case "4":
+                    MediaPlayer.create(getContext(), R.raw.secret).start();
+            }
         }
     };
 }
